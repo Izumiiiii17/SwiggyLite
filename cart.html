@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - Food Delivery App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    #cart {
+      padding: 50px 15px;
+    }
+
+    .cart-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+
+    .back-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px; /* Space between the buttons */
+      margin-bottom: 30px;
+    }
+
+    .back-home {
+      background-color: #fc8019;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+      width: 150px; /* Set width to make them consistent */
+    }
+
+    .back-home:hover {
+      background-color: #e57015;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+
+    .cart-items {
+      border: 1px solid #e9e9eb;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      border-bottom: 1px solid #e9e9eb;
+    }
+
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .item-image img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 20px;
+    }
+
+    .item-details {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .item-info h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .item-info p {
+      color: #686b78;
+      font-size: 16px;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-quantity {
+      background-color: #f0f0f0;
+      border: none;
+      border-radius: 4px;
+      padding: 5px 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-quantity:hover {
+      background-color: #e0e0e0;
+    }
+
+    .btn-remove {
+      background-color: #fc8019;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .btn-remove:hover {
+      background-color: #e57015;
+    }
+
+    .cart-summary {
+      border: 1px solid #e9e9eb;
+      border-radius: 10px;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    .cart-summary h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .summary-item:last-child {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #333;
+    }
+
+    .btn-checkout {
+      width: 100%;
+      background-color: #fc8019;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 12px 0;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .btn-checkout:hover {
+      background-color: #e57015;
+    }
+  </style>
+</head>
+<body>
+  <section id="cart">
+    <div class="cart-container">
+      <div class="back-buttons">
+        <button class="back-home" onclick="window.location.href='Home.html'">Back to Home</button>
+        <button class="back-home" onclick="window.location.href='restaurants.html'">Back to Restaurants</button>
+      </div>
+      <h1>Your Cart</h1>
+
+      <div id="cart-items" class="cart-items">
+        <div class="cart-item">
+          <div class="item-image">
+            <img src="burger.jpeg" alt="Item 1">
+          </div>
+          <div class="item-details">
+            <div class="item-info">
+              <h3>Grilled Sanchez Burger</h3>
+              <p>$9.99</p>
+            </div>
+            <div class="quantity-controls">
+              <button class="btn-quantity">-</button>
+              <span class="quantity">1</span>
+              <button class="btn-quantity">+</button>
+            </div>
+          </div>
+          <button class="btn-remove">Remove</button>
+        </div>
+
+        <div class="cart-item">
+          <div class="item-image">
+            <img src="burrito.jpeg" alt="Item 2">
+          </div>
+          <div class="item-details">
+            <div class="item-info">
+              <h3>Sanchez Burrito</h3>
+              <p>$15.99</p>
+            </div>
+            <div class="quantity-controls">
+              <button class="btn-quantity">-</button>
+              <span class="quantity">2</span>
+              <button class="btn-quantity">+</button>
+            </div>
+          </div>
+          <button class="btn-remove">Remove</button>
+        </div>
+      </div>
+
+      <div class="cart-summary">
+        <h2>Order Summary</h2>
+        <div class="summary-item">
+          <span>Subtotal</span>
+          <span>$25.98</span>
+        </div>
+        <div class="summary-item">
+          <span>Delivery Fee</span>
+          <span>$2.99</span>
+        </div>
+        <div class="summary-item">
+          <span>Total</span>
+          <span>$28.97</span>
+        </div>
+        <button class="btn-checkout">Proceed to Checkout</button>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

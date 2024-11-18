@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurants</title>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-y+z1hFOcIjYZpLUODZZW+nKsM9KRk7wVzKPpMc0eOli+biOH9d5CTAoJ7EU+7Pq9oF4+c9D3K5kPQiljYWXMcg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header Section */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            color: orange;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fc8019;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin-right: 20px;
+        }
+
+        nav ul li {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav ul li a i {
+            color: #fc8019;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: orange;
+        }
+
+        /* Restaurants Section */
+        .restaurants {
+            margin-top: 60px;
+            padding: 20px;
+        }
+
+        .restaurant-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column; /* Added to stack the elements vertically */
+            justify-content: space-between;
+            height: 400px; /* Added height to make space for the button */
+            transition: all 0.3s ease;
+        }
+
+        .restaurant-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .restaurant-info {
+            flex-grow: 1;
+        }
+
+        .restaurant-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .restaurant-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .restaurant-description {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .restaurant-details {
+            font-size: 14px;
+            color: #777;
+            margin-top: 10px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .rating {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .rating i {
+            color: #ffbf00;
+        }
+
+        .timing {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Restaurant Icon */
+        .restaurant-icon {
+            font-size: 40px;
+            color: #fc8019;
+            transition: transform 0.3s ease; /* Smooth transition for scaling */
+        }
+
+        .restaurant-icon:hover {
+            transform: scale(0.8); /* Scale down the icon on hover */
+        }
+
+        /* Button */
+        .btn-order {
+            background-color: #fc8019;
+            color: white;
+            padding: 6px 12px; /* Smaller padding */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-align: center;
+            width: auto; /* Adjust button size based on text */
+            margin-top: 10px; /* Spacing between button and other content */
+            align-self: flex-start; /* Align button to the left */
+        }
+
+        .btn-order:hover {
+            background-color: #e57015;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">Swiggy Lite</div>
+            <nav>
+                <ul>
+                    <li><a href="Home.html"><i class="fas fa-user"></i>Home</a></li>
+                    <li><a href="restaurants.html"><i class="fas fa-utensils"></i> Restaurants</a></li>
+                    <li><a href="signin.html"><i class="fas fa-user"></i> Sign In</a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Restaurants Section -->
+    <section class="restaurants">
+        <!-- Restaurant 1 (Sanchez) -->
+        <div class="restaurant-item">
+            <div class="restaurant-info">
+                <img src="sanchez.png" alt="Sanchez Restaurant" class="restaurant-image">
+                <h3 class="restaurant-name">Sanchez</h3>
+                <p class="restaurant-description">A perfect blend of grilled flavors with a spicy twist</p>
+                <div class="restaurant-details">
+                    <div class="rating">
+                        <i class="fas fa-star"></i><span>4.2</span>
+                    </div>
+                    <div class="timing">
+                        <span>10:00 AM - 11:00 PM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="restaurant-icon">
+                <i class="fas fa-fire"></i>
+            </div>
+            <!-- Link wrapping the button to redirect to Sanchez page -->
+            <a href="sanchez.html">
+                <button class="btn-order">Order Now</button>
+            </a>
+        </div>
+
+        <!-- Restaurant 2 (Savoury) -->
+        <div class="restaurant-item">
+            <div class="restaurant-info">
+                <img src="savoury.png" alt="Savoury Restaurant" class="restaurant-image">
+                <h3 class="restaurant-name">Savoury</h3>
+                <p class="restaurant-description">Healthy and fresh meals made just for you</p>
+                <div class="restaurant-details">
+                    <div class="rating">
+                        <i class="fas fa-star"></i><span>4.5</span>
+                    </div>
+                    <div class="timing">
+                        <span>8:00 AM - 9:00 PM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="restaurant-icon">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <button class="btn-order">Order Now</button>
+        </div>
+
+        <!-- Restaurant 3 (Kesariya) -->
+        <div class="restaurant-item">
+            <div class="restaurant-info">
+                <img src="kesariya.jpeg" alt="Kesariya Restaurant" class="restaurant-image">
+                <h3 class="restaurant-name">Kesariya</h3>
+                <p class="restaurant-description">Delicious pizzas with a wide variety of toppings</p>
+                <div class="restaurant-details">
+                    <div class="rating">
+                        <i class="fas fa-star"></i><span>4.7</span>
+                    </div>
+                    <div class="timing">
+                        <span>11:00 AM - 12:00 AM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="restaurant-icon">
+                <i class="fas fa-pizza-slice"></i>
+            </div>
+            <button class="btn-order">Order Now</button>
+        </div>
+
+        <!-- Restaurant 4 (N-Chef) -->
+        <div class="restaurant-item">
+            <div class="restaurant-info">
+                <img src="nchef.jpeg" alt="N-Chef Restaurant" class="restaurant-image">
+                <h3 class="restaurant-name">N-chef</h3>
+                <p class="restaurant-description">Juicy burgers made with the freshest ingredients</p>
+                <div class="restaurant-details">
+                    <div class="rating">
+                        <i class="fas fa-star"></i><span>4.3</span>
+                    </div>
+                    <div class="timing">
+                        <span>12:00 PM - 10:00 PM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="restaurant-icon">
+                <i class="fas fa-hamburger"></i>
+            </div>
+            <button class="btn-order">Order Now</button>
+        </div>
+    </section>
+    
+</body>
+</html>
